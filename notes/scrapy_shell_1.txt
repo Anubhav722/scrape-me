@@ -1,0 +1,42 @@
+n [1]: fetch("http://quotes.toscrape.com/")
+2018-01-07 01:21:20 [scrapy.core.engine] INFO: Spider opened
+2018-01-07 01:21:21 [scrapy.core.engine] DEBUG: Crawled (404) <GET http://quotes.toscrape.com/robots.txt> (referer: None)
+2018-01-07 01:21:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://quotes.toscrape.com/> (referer: None)
+
+In [2]: response
+Out[2]: <200 http://quotes.toscrape.com/>
+
+In [3]: request
+Out[3]: <GET http://quotes.toscrape.com/>
+
+In [4]: response.css('h1')
+Out[4]: [<Selector xpath=u'descendant-or-self::h1' data=u'<h1>\n                    <a href="/" sty'>]
+
+In [5]: response.css('h1').text
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-5-80081f7f6b67> in <module>()
+----> 1 response.css('h1').text
+
+AttributeError: 'SelectorList' object has no attribute 'text'
+
+In [6]: response.css('h1::text')
+Out[6]: 
+[<Selector xpath=u'descendant-or-self::h1/text()' data=u'\n                    '>,
+ <Selector xpath=u'descendant-or-self::h1/text()' data=u'\n                '>]
+
+In [7]: response.xpath('//h1')
+Out[7]: [<Selector xpath='//h1' data=u'<h1>\n                    <a href="/" sty'>]
+
+In [8]: response.xpath('//h1/a')
+Out[8]: [<Selector xpath='//h1/a' data=u'<a href="/" style="text-decoration: none'>]
+
+In [9]: response.xpath('//h1/a/text()')
+Out[9]: [<Selector xpath='//h1/a/text()' data=u'Quotes to Scrape'>]
+
+In [10]: response.xpath('//h1/a/text()').extract()
+Out[10]: [u'Quotes to Scrape']
+
+In [11]: response.xpath('//h1/a/text()').extract_first()
+Out[11]: u'Quotes to Scrape'
+

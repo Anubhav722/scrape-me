@@ -1,0 +1,119 @@
+In [1]: from scrapy.selector import Selector
+
+In [2]: %paste
+html_doc = '''
+<html>
+        <head>
+                <title>Title of the page</title>
+        </head>
+        <body>
+                <h1>H1 Tag</h1>
+                <h2>H2 Tag with <a href="#">link</a></h2>
+                <p>First Paragraph</p>
+                <p>Second Paragraph</p>
+        </body>
+</html>
+'''
+
+## -- End pasted text --
+
+In [3]: sel = Selector(text=html_doc)
+
+In [4]: sel.extract()
+Out[4]: u'<html>\n\t<head>\n\t\t<title>Title of the page</title>\n\t</head>\n\t<body>\n\t\t<h1>H1 Tag</h1>\n\t\t<h2>H2 Tag with <a href="#">link</a></h2>\n\t\t<p>First Paragraph</p>\n\t\t<p>Second Paragraph</p>\n\t</body>\n</html>'
+
+In [5]: sel.xpath('/html/head/title')
+Out[5]: [<Selector xpath='/html/head/title' data=u'<title>Title of the page</title>'>]
+
+In [6]: sel.xpath('/html/head/title').extract()
+Out[6]: [u'<title>Title of the page</title>']
+
+In [7]: sel.xpath('//title').extract()
+Out[7]: [u'<title>Title of the page</title>']
+
+In [8]: sel.xpath('//text()').extract()
+Out[8]: 
+[u'\n\t',
+ u'\n\t\t',
+ u'Title of the page',
+ u'\n\t',
+ u'\n\t',
+ u'\n\t\t',
+ u'H1 Tag',
+ u'\n\t\t',
+ u'H2 Tag with ',
+ u'link',
+ u'\n\t\t',
+ u'First Paragraph',
+ u'\n\t\t',
+ u'Second Paragraph',
+ u'\n\t',
+ u'\n']
+
+In [9]: # ^ selects all the text from the html
+
+In [10]: sel.xpath('/html/body/p')
+Out[10]: 
+[<Selector xpath='/html/body/p' data=u'<p>First Paragraph</p>'>,
+ <Selector xpath='/html/body/p' data=u'<p>Second Paragraph</p>'>]
+
+In [11]: sel.xpath('/html/body/p').extract()
+Out[11]: [u'<p>First Paragraph</p>', u'<p>Second Paragraph</p>']
+
+In [12]: sel.xpath('//p').extract()
+Out[12]: [u'<p>First Paragraph</p>', u'<p>Second Paragraph</p>']
+
+In [13]: sel.xpath('//p[0]').extract()
+Out[13]: []
+
+In [14]: sel.xpath('//p[1]').extract()
+Out[14]: [u'<p>First Paragraph</p>']
+
+In [15]: sel.xpath('//p[12').extract()
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-15-23529868f628> in <module>()
+----> 1 sel.xpath('//p[12').extract()
+
+/usr/local/lib/python2.7/dist-packages/parsel/selector.pyc in xpath(self, query, namespaces, **kwargs)
+    224             msg = u"XPath error: %s in %s" % (exc, query)
+    225             msg = msg if six.PY3 else msg.encode('unicode_escape')
+--> 226             six.reraise(ValueError, ValueError(msg), sys.exc_info()[2])
+    227 
+    228         if type(result) is not list:
+
+/usr/local/lib/python2.7/dist-packages/parsel/selector.pyc in xpath(self, query, namespaces, **kwargs)
+    220             result = xpathev(query, namespaces=nsp,
+    221                              smart_strings=self._lxml_smart_strings,
+--> 222                              **kwargs)
+    223         except etree.XPathError as exc:
+    224             msg = u"XPath error: %s in %s" % (exc, query)
+
+src/lxml/etree.pyx in lxml.etree._Element.xpath (src/lxml/etree.c:61238)()
+
+src/lxml/xpath.pxi in lxml.etree.XPathElementEvaluator.__call__ (src/lxml/etree.c:178777)()
+
+src/lxml/xpath.pxi in lxml.etree._XPathEvaluatorBase._handle_result (src/lxml/etree.c:177729)()
+
+ValueError: XPath error: Invalid predicate in //p[12
+
+In [16]: sel.xpath('//p[2]').extract()
+Out[16]: [u'<p>Second Paragraph</p>']
+
+In [17]: sel.xpath('//p')[0].extract()
+Out[17]: u'<p>First Paragraph</p>'
+
+In [18]: sel.xpath('//p/text()')[0].extract()
+Out[18]: u'First Paragraph'
+
+In [19]: sel.xpath('//h2')[0].extract()
+Out[19]: u'<h2>H2 Tag with <a href="#">link</a></h2>'
+
+In [20]: sel.xpath('//h2/a').extract()
+Out[20]: [u'<a href="#">link</a>']
+
+In [21]: sel.xpath('//h2/a/@href').extract()
+Out[21]: [u'#']
+
+In [22]: sel.css('h2')
+Out[22]: [<Selector xpath=u'descendant-or-self::h2' data=u'<h2>H2 Tag with <a href="#">link</a></h2'>]

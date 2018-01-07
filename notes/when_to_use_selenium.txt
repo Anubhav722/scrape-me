@@ -1,0 +1,22 @@
+Selenium is mainly used for writing automated tests for web applications. That said, it is also used for web scraping mainly because easy for beginners and it is suitable for scraping JavaScript driven web pages, especially if JavaScript interactions are very complex with many get and post requests.
+
+
+
+Selenium can be used solely or along with Scrapy. So we can use Selenium iterate on JavaScript driven web pages and then use Scrapy Selectors to scrape the HTML that Selenium produces.
+
+
+
+Selenium can be used under both Python 2.7 and 3.x versions. Overall, Selenium support is really extensive, and it provides bindings for languages such as Java, C#, Ruby, Python of course, and JavaScript. Selenium official documentation is great and easy to understand even if you are a beginner.
+
+
+
+That said, Scraping thousand pages with Scrapy is 20 times faster than using Selenium. Furthermore, Scrapy consumes a lot less memory, and CPU usage than Selenium.
+
+
+
+You also need a “driver”, which is a small program that allows Selenium to “drive” your browser. This driver is browser-specific, so first we need to choose which browser we want to use. For this course, we will use Chrome, precisely ChromeDriver.
+
+
+
+Note: The website used in the next video can be scraped with Scrapy alone, but we used it because we are going to compare how to scrape it using both Scrapy+Selenium and Scrapy alone to compare performance. Still, we will show examples where using Selenium as a supporting aid with Scrapy, in the "Solved Exercises" section at the end of this course.
+

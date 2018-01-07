@@ -1,0 +1,100 @@
+(scrapy_git) sheron@sheron-HP-Pavilion-g6-Notebook-PC:~/scrapy_git$ scrapy shell 'http://quotes.toscrape.com/login'
+2018-01-07 20:03:55 [scrapy.utils.log] INFO: Scrapy 1.5.0 started (bot: scrapybot)
+2018-01-07 20:03:55 [scrapy.utils.log] INFO: Versions: lxml 4.1.1.0, libxml2 2.9.7, cssselect 1.0.3, parsel 1.3.1, w3lib 1.18.0, Twisted 17.9.0, Python 2.7.12 (default, Nov 20 2017, 18:23:56) - [GCC 5.4.0 20160609], pyOpenSSL 17.5.0 (OpenSSL 1.1.0g  2 Nov 2017), cryptography 2.1.4, Platform Linux-4.10.0-42-generic-x86_64-with-Ubuntu-16.04-xenial
+2018-01-07 20:03:55 [scrapy.crawler] INFO: Overridden settings: {'LOGSTATS_INTERVAL': 0, 'DUPEFILTER_CLASS': 'scrapy.dupefilters.BaseDupeFilter'}
+2018-01-07 20:03:55 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2018-01-07 20:03:55 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-01-07 20:03:55 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-01-07 20:03:55 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2018-01-07 20:03:55 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2018-01-07 20:03:55 [scrapy.core.engine] INFO: Spider opened
+2018-01-07 20:04:11 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://quotes.toscrape.com/login> (failed 1 times): DNS lookup failed: no results for hostname lookup: quotes.toscrape.com.
+2018-01-07 20:04:11 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://quotes.toscrape.com/login> (referer: None)
+2018-01-07 20:04:12 [traitlets] DEBUG: Using default logger
+2018-01-07 20:04:12 [traitlets] DEBUG: Using default logger
+2018-01-07 20:04:12 [py.warnings] WARNING: /usr/local/lib/python2.7/dist-packages/IPython/core/interactiveshell.py:726: UserWarning: Attempting to work in a virtualenv. If you encounter problems, please install IPython inside the virtualenv.
+  warn("Attempting to work in a virtualenv. If you encounter problems, please "
+
+[s] Available Scrapy objects:
+[s]   scrapy     scrapy module (contains scrapy.Request, scrapy.Selector, etc)
+[s]   crawler    <scrapy.crawler.Crawler object at 0x7fec7a36e9d0>
+[s]   item       {}
+[s]   request    <GET http://quotes.toscrape.com/login>
+[s]   response   <200 http://quotes.toscrape.com/login>
+[s]   settings   <scrapy.settings.Settings object at 0x7fec7a36ea50>
+[s]   spider     <DefaultSpider 'default' at 0x7fec794c48d0>
+[s] Useful shortcuts:
+[s]   fetch(url[, redirect=True]) Fetch URL and update local objects (by default, redirects are followed)
+[s]   fetch(req)                  Fetch a scrapy.Request and update local objects 
+[s]   shelp()           Shell help (print this help)
+[s]   view(response)    View response in a browser
+In [1]: response
+Out[1]: <200 http://quotes.toscrape.com/login>
+
+In [2]: response.xpath('//*[@name="csrf_token"]')
+Out[2]: [<Selector xpath='//*[@name="csrf_token"]' data=u'<input type="hidden" name="csrf_token" v'>]
+
+In [3]: response.xpath('//*[@name="csrf_token"]').extract()
+Out[3]: [u'<input type="hidden" name="csrf_token" value="yTvuSsGNkmXYjIoLEMZfcOxKqFJptbleWQrgUAaVzPwidBHRnhCD">']
+
+In [4]: response.xpath('//*[@name="csrf_token"]/value').extract()
+Out[4]: []
+
+In [5]: response.xpath('//*[@name="csrf_token"]/value()').extract()
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-5-4b9942f93ec7> in <module>()
+----> 1 response.xpath('//*[@name="csrf_token"]/value()').extract()
+
+/usr/local/lib/python2.7/dist-packages/scrapy/http/response/text.pyc in xpath(self, query, **kwargs)
+    117 
+    118     def xpath(self, query, **kwargs):
+--> 119         return self.selector.xpath(query, **kwargs)
+    120 
+    121     def css(self, query):
+
+/usr/local/lib/python2.7/dist-packages/parsel/selector.pyc in xpath(self, query, namespaces, **kwargs)
+    224             msg = u"XPath error: %s in %s" % (exc, query)
+    225             msg = msg if six.PY3 else msg.encode('unicode_escape')
+--> 226             six.reraise(ValueError, ValueError(msg), sys.exc_info()[2])
+    227 
+    228         if type(result) is not list:
+
+/usr/local/lib/python2.7/dist-packages/parsel/selector.pyc in xpath(self, query, namespaces, **kwargs)
+    220             result = xpathev(query, namespaces=nsp,
+    221                              smart_strings=self._lxml_smart_strings,
+--> 222                              **kwargs)
+    223         except etree.XPathError as exc:
+    224             msg = u"XPath error: %s in %s" % (exc, query)
+
+src/lxml/etree.pyx in lxml.etree._Element.xpath (src/lxml/etree.c:61238)()
+
+src/lxml/xpath.pxi in lxml.etree.XPathElementEvaluator.__call__ (src/lxml/etree.c:178777)()
+
+src/lxml/xpath.pxi in lxml.etree._XPathEvaluatorBase._handle_result (src/lxml/etree.c:177729)()
+
+ValueError: XPath error: Invalid expression in //*[@name="csrf_token"]/value()
+
+In [6]: response.xpath('//*[@name="csrf_token"]/@value').extract()
+Out[6]: [u'yTvuSsGNkmXYjIoLEMZfcOxKqFJptbleWQrgUAaVzPwidBHRnhCD']
+

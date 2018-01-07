@@ -13,4 +13,3 @@ class QuotesSpiderItem(scrapy.Item):
     # name = scrapy.Field()
     h1_tag = scrapy.Field()
     tags = scrapy.Field()
-    pass

@@ -1,0 +1,25 @@
+In [23]: response.xpath('//*[@class="next"]')
+Out[23]: [<Selector xpath='//*[@class="next"]' data=u'<li class="next">\n                <a hre'>]
+
+In [24]: response.xpath('//*[@class="next"]/a')
+Out[24]: [<Selector xpath='//*[@class="next"]/a' data=u'<a href="/page/2/">Next <span aria-hidde'>]
+
+In [25]: response.xpath('//*[@class="next"]/a/@href')
+Out[25]: [<Selector xpath='//*[@class="next"]/a/@href' data=u'/page/2/'>]
+
+In [26]: response.xpath('//*[@class="next"]/a/@href').extract_first()
+Out[26]: u'/page/2/'
+
+In [27]: response.urljoin(next_page_url)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-27-52a372260040> in <module>()
+----> 1 response.urljoin(next_page_url)
+
+NameError: name 'next_page_url' is not defined
+
+In [28]: next_page_url = response.xpath('//*[@class="next"]/a/@href').extract_first()
+
+In [29]: response.urljoin(next_page_url)
+Out[29]: u'http://quotes.toscrape.com/page/2/'
+

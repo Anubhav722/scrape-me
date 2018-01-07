@@ -22,3 +22,13 @@ class QuotesSpider(scrapy.Spider):
         	tags = quote.xpath('.//*[@itemprop="keywords"]/@content').extract_first()
         	# tags = quote.xpath('.//*[@class="tag"]/text()').extract()
 
+        	print('\n')
+        	print(text)
+        	print(author)
+        	print(tags)
+        	print('\n')
+
+        next_page_url = response.xpath('//*[@class="next"]/a/@href').extract_first()
+        absolute_next_page_url = response.urljoin(next_page_url)
+
+        yield scrapy.Request(absolute_next_page_url)

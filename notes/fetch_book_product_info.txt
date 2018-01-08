@@ -1,0 +1,196 @@
+In [1]: response.xpath('//h3/a/@href').extract()
+Out[1]: 
+[u'catalogue/a-light-in-the-attic_1000/index.html',
+ u'catalogue/tipping-the-velvet_999/index.html',
+ u'catalogue/soumission_998/index.html',
+ u'catalogue/sharp-objects_997/index.html',
+ u'catalogue/sapiens-a-brief-history-of-humankind_996/index.html',
+ u'catalogue/the-requiem-red_995/index.html',
+ u'catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html',
+ u'catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html',
+ u'catalogue/the-boys-in-the-boat-nine-americans-and-their-epic-quest-for-gold-at-the-1936-berlin-olympics_992/index.html',
+ u'catalogue/the-black-maria_991/index.html',
+ u'catalogue/starving-hearts-triangular-trade-trilogy-1_990/index.html',
+ u'catalogue/shakespeares-sonnets_989/index.html',
+ u'catalogue/set-me-free_988/index.html',
+ u'catalogue/scott-pilgrims-precious-little-life-scott-pilgrim-1_987/index.html',
+ u'catalogue/rip-it-up-and-start-again_986/index.html',
+ u'catalogue/our-band-could-be-your-life-scenes-from-the-american-indie-underground-1981-1991_985/index.html',
+ u'catalogue/olio_984/index.html',
+ u'catalogue/mesaerion-the-best-science-fiction-stories-1800-1849_983/index.html',
+ u'catalogue/libertarianism-for-beginners_982/index.html',
+ u'catalogue/its-only-the-himalayas_981/index.html']
+
+In [2]: len(response.xpath('//h3/a/@href').extract()) == 20
+Out[2]: True
+
+In [3]: response.xpath('//a[text()="next"]')
+Out[3]: [<Selector xpath='//a[text()="next"]' data=u'<a href="catalogue/page-2.html">next</a>'>]
+
+In [4]: response.xpath('//a[text()="next"]').extract_first()
+Out[4]: u'<a href="catalogue/page-2.html">next</a>'
+
+In [5]: response.xpath('//a[text()="next"]/@href').extract_first()
+Out[5]: u'catalogue/page-2.html'
+
+In [6]: # Fetching book url from here in scrapy shell
+
+In [7]: fetch('http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html')
+2018-01-09 01:48:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html> (referer: None)
+
+In [8]: response.xpath('//h1')
+Out[8]: [<Selector xpath='//h1' data=u'<h1>A Light in the Attic</h1>'>]
+
+In [9]: response.xpath('//h1').extract_first()
+Out[9]: u'<h1>A Light in the Attic</h1>'
+
+In [10]: response.xpath('//h1/text()').extract_first()
+Out[10]: u'A Light in the Attic'
+
+In [11]: response.xpath('//*[@class=price_color]')
+Out[11]: []
+
+In [12]: response.xpath('//p')
+Out[12]: 
+[<Selector xpath='//p' data=u'<p class="price_color">\xa351.77</p>'>,
+ <Selector xpath='//p' data=u'<p class="instock availability">\n    <i '>,
+ <Selector xpath='//p' data=u'<p class="star-rating Three">\n        <i'>,
+ <Selector xpath='//p' data=u"<p>It's hard to imagine a world without ">]
+
+In [13]: response.xpath('//p/[@class="price_color"]')
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-13-e23208d02e93> in <module>()
+----> 1 response.xpath('//p/[@class="price_color"]')
+
+/usr/local/lib/python2.7/dist-packages/scrapy/http/response/text.pyc in xpath(self, query, **kwargs)
+    117 
+    118     def xpath(self, query, **kwargs):
+--> 119         return self.selector.xpath(query, **kwargs)
+    120 
+    121     def css(self, query):
+
+/usr/local/lib/python2.7/dist-packages/parsel/selector.pyc in xpath(self, query, namespaces, **kwargs)
+    224             msg = u"XPath error: %s in %s" % (exc, query)
+    225             msg = msg if six.PY3 else msg.encode('unicode_escape')
+--> 226             six.reraise(ValueError, ValueError(msg), sys.exc_info()[2])
+    227 
+    228         if type(result) is not list:
+
+/usr/local/lib/python2.7/dist-packages/parsel/selector.pyc in xpath(self, query, namespaces, **kwargs)
+    220             result = xpathev(query, namespaces=nsp,
+    221                              smart_strings=self._lxml_smart_strings,
+--> 222                              **kwargs)
+    223         except etree.XPathError as exc:
+    224             msg = u"XPath error: %s in %s" % (exc, query)
+
+src/lxml/etree.pyx in lxml.etree._Element.xpath (src/lxml/etree.c:61238)()
+
+src/lxml/xpath.pxi in lxml.etree.XPathElementEvaluator.__call__ (src/lxml/etree.c:178777)()
+
+src/lxml/xpath.pxi in lxml.etree._XPathEvaluatorBase._handle_result (src/lxml/etree.c:177729)()
+
+ValueError: XPath error: Invalid expression in //p/[@class="price_color"]
+
+In [14]: response.xpath('//*[@class="price_color"]')
+Out[14]: [<Selector xpath='//*[@class="price_color"]' data=u'<p class="price_color">\xa351.77</p>'>]
+
+In [15]: response.xpath('//*[@class="price_color"]').extract()
+Out[15]: [u'<p class="price_color">\xa351.77</p>']
+
+In [16]: response.xpath('//*[@class="price_color"]').extract_first()
+Out[16]: u'<p class="price_color">\xa351.77</p>'
+
+In [17]: response.xpath('//*[@class="price_color"]/text()').extract_first()
+Out[17]: u'\xa351.77'
+
+In [18]: print(response.xpath('//*[@class="price_color"]/text()').extract_first())
+£51.77
+
+In [19]: response.xpath('//img')
+Out[19]: [<Selector xpath='//img' data=u'<img src="../../media/cache/fe/72/fe72f0'>]
+
+In [20]: response.xpath('//img').extract_first()
+Out[20]: u'<img src="../../media/cache/fe/72/fe72f0532301ec28892ae79a629a293c.jpg" alt="A Light in the Attic">'
+
+In [21]: response.xpath('//img/@src').extract_first()
+Out[21]: u'../../media/cache/fe/72/fe72f0532301ec28892ae79a629a293c.jpg'
+
+In [22]: # have obtained partial url for the image
+
+In [23]: response.xpath('//*[@contains(@class, "star-rating")]')
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-23-daf718e6bc5c> in <module>()
+----> 1 response.xpath('//*[@contains(@class, "star-rating")]')
+
+/usr/local/lib/python2.7/dist-packages/scrapy/http/response/text.pyc in xpath(self, query, **kwargs)
+    117 
+    118     def xpath(self, query, **kwargs):
+--> 119         return self.selector.xpath(query, **kwargs)
+    120 
+    121     def css(self, query):
+
+/usr/local/lib/python2.7/dist-packages/parsel/selector.pyc in xpath(self, query, namespaces, **kwargs)
+    224             msg = u"XPath error: %s in %s" % (exc, query)
+    225             msg = msg if six.PY3 else msg.encode('unicode_escape')
+--> 226             six.reraise(ValueError, ValueError(msg), sys.exc_info()[2])
+    227 
+    228         if type(result) is not list:
+
+/usr/local/lib/python2.7/dist-packages/parsel/selector.pyc in xpath(self, query, namespaces, **kwargs)
+    220             result = xpathev(query, namespaces=nsp,
+    221                              smart_strings=self._lxml_smart_strings,
+--> 222                              **kwargs)
+    223         except etree.XPathError as exc:
+    224             msg = u"XPath error: %s in %s" % (exc, query)
+
+src/lxml/etree.pyx in lxml.etree._Element.xpath (src/lxml/etree.c:61238)()
+
+src/lxml/xpath.pxi in lxml.etree.XPathElementEvaluator.__call__ (src/lxml/etree.c:178777)()
+
+src/lxml/xpath.pxi in lxml.etree._XPathEvaluatorBase._handle_result (src/lxml/etree.c:177729)()
+
+ValueError: XPath error: Invalid expression in //*[@contains(@class, "star-rating")]
+
+In [24]: response.xpath('//*[contains(@class, "star-rating")]')
+Out[24]: [<Selector xpath='//*[contains(@class, "star-rating")]' data=u'<p class="star-rating Three">\n        <i'>]
+
+In [25]: response.xpath('//*[contains(@class, "star-rating")]').extract()
+Out[25]: [u'<p class="star-rating Three">\n        <i class="icon-star"></i>\n        <i class="icon-star"></i>\n        <i class="icon-star"></i>\n        <i class="icon-star"></i>\n        <i class="icon-star"></i>\n\n        <!-- <small><a href="/catalogue/a-light-in-the-attic_1000/reviews/">\n        \n                \n                    0 customer reviews\n                \n        </a></small>\n         -->\xa0\n\n\n<!-- \n    <a id="write_review" href="/catalogue/a-light-in-the-attic_1000/reviews/add/#addreview" class="btn btn-success btn-sm">\n        Write a review\n    </a>\n\n --></p>']
+
+In [26]: response.xpath('//*[contains(@class, "star-rating")]/@class').extract()
+Out[26]: [u'star-rating Three']
+
+In [27]: response.xpath('//*[contains(@class, "star-rating")]/@class').extract_first()
+Out[27]: u'star-rating Three'
+
+In [28]: response.xpath('//*[@id="product_description"]')
+Out[28]: [<Selector xpath='//*[@id="product_description"]' data=u'<div id="product_description" class="sub'>]
+
+In [29]: response.xpath('//*[@id="product_description"]/following-sibling::p/text()')
+Out[29]: [<Selector xpath='//*[@id="product_description"]/following-sibling::p/text()' data=u"It's hard to imagine a world without A L">]
+
+In [30]: response.xpath('//*[@id="product_description"]/following-sibling::p/text()').extract()
+Out[30]: [u"It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love th It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love that Silverstein. Need proof of his genius? RockabyeRockabye baby, in the treetopDon't you know a treetopIs no safe place to rock?And who put you up there,And your cradle, too?Baby, I think someone down here'sGot it in for you. Shel, you never sounded so good. ...more"]
+
+In [31]: response.xpath('//*[@id="product_description"]/following-sibling::p/text()').extract_first()
+Out[31]: u"It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love th It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love that Silverstein. Need proof of his genius? RockabyeRockabye baby, in the treetopDon't you know a treetopIs no safe place to rock?And who put you up there,And your cradle, too?Baby, I think someone down here'sGot it in for you. Shel, you never sounded so good. ...more"
+
+In [32]: response.xpath('//th[text()="UPC"]')
+Out[32]: [<Selector xpath='//th[text()="UPC"]' data=u'<th>UPC</th>'>]
+
+In [33]: response.xpath('//th[text()="UPC"]').extract()
+Out[33]: [u'<th>UPC</th>']
+
+In [34]: response.xpath('//th[text()="UPC"]/following_sibling').extract()
+Out[34]: []
+
+In [35]: response.xpath('//th[text()="UPC"]/following-sibling').extract()
+Out[35]: []
+
+In [36]: response.xpath('//th[text()="UPC"]/following-sibling::td/text()').extract()
+Out[36]: [u'a897fe39b1053632']
+
+In [37]: response.xpath('//th[text()="UPC"]/following-sibling::td/text()').extract_first()
+Out[37]: u'a897fe39b1053632'

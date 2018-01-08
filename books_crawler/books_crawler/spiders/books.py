@@ -11,6 +11,9 @@ from scrapy.http import Request
 # from selenium.common.exceptions import NoSuchElementException
 # from time import sleep
 
+def product_info(response, value):
+	return response.xpath('//th[text()="' + value + '"]/following-sibling::td/text()').extract_first()
+
 class BooksSpider(Spider):
 	name = 'books'
 	allowed_domains = ['books.toscrape.com']
@@ -46,12 +49,29 @@ class BooksSpider(Spider):
 
 		book_description = response.xpath('//*[@id="product_description"]/following-sibling::p/text()').extract_first()
 
+		# product information
+		book_upc = product_info(response, 'UPC')
+		book_product_type = product_info(response, 'Product Type')
+		book_price_without_tax = product_info(response, 'Price (excl. tax)')
+		book_price_with_tax = product_info(response, 'Price (incl. tax)')
+		book_tax = product_info(response, 'Tax')
+		book_availability = product_info(response, 'Availability')
+		book_no_of_reviews = product_info(response, 'Number of reviews')
+
 		yield {
 			"book_title": book_title,
 			"book_price": book_price,
 			"book_image_url": book_image_url,
 			"book_rating": book_rating,
-			"book_description": book_description
+			"book_description": book_description,
+
+			"book_upc": book_upc,
+			"book_product_type": book_product_type,
+			"book_price_without_tax": book_price_without_tax,
+			"book_price_with_tax": book_price_with_tax,
+			"book_tax": book_tax,
+			"book_availability": book_availability,
+			"book_no_of_reviews": book_no_of_reviews
 		}
 
 

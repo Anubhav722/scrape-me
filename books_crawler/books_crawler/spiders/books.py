@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from time import sleep
+
 # from scrapy.spiders import CrawlSpider, Rule
 from scrapy import Spider
 from scrapy.linkextractors import LinkExtractor
@@ -8,6 +10,7 @@ from scrapy.http import Request
 
 # Selenium imports
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 
 
 class BooksSpider(Spider):
@@ -27,6 +30,28 @@ class BooksSpider(Spider):
     	for book_url in book_urls:
     		url = 'http://books.toscrape.com/' + book_url
     		yield Request(url, callback=self.parse_book)
+
+
+    	while True:
+    		try:
+    			next_page = self.driver.find_element_by_xpath('//a[text()="next"]')
+    			sleep(3)
+    			self.logger.info('Sleeping for 3 seconds')
+    			next_page.click()
+
+    			sel = Selector(text=self.driver.page_source)
+    			book_urls = sel.xpath('//h3/a/@href').extract()
+
+    			for book_url in book_urls:
+    				url = 'http://books.toscrape.com/catalogue/' + book_url
+
+
+    				yield Request(url, callback=self.parse_book)
+
+    		except NoSuchElementException:
+    			self.logger.info('No more pages to load.')
+    			self.driver.quit()
+    			break
 
     def parse_book(self, response):
     	pass

@@ -1,0 +1,40 @@
+
+In [1]: from selenium import webdriver
+
+In [2]: from scrapy.selector import Selector
+
+In [3]: driver = webdriver.Chrome('/home/sheron/Downloads/chromedriver')
+
+In [4]: driver,get('http://google.com')
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-4-a362813c4c7a> in <module>()
+----> 1 driver,get('http://google.com')
+
+NameError: name 'get' is not defined
+
+In [5]: driver.get('http://google.com')
+
+In [6]: driver.get('http://books.toscrape.com')
+
+In [7]: sel = Selector(driver.page_source)
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-7-f57af0aa471b> in <module>()
+----> 1 sel = Selector(driver.page_source)
+
+/usr/local/lib/python2.7/dist-packages/scrapy/selector/unified.pyc in __init__(self, response, text, type, root, _root, **kwargs)
+     65 
+     66         if response is not None:
+---> 67             text = response.text
+     68             kwargs.setdefault('base_url', response.url)
+     69 
+
+AttributeError: 'unicode' object has no attribute 'text'
+
+In [8]: driver.find_element_by_xpath('//a[text()="next"]')
+Out[8]: <selenium.webdriver.remote.webelement.WebElement (session="0671e12052a4329cc226114be565fcc2", element="0.24651583677969224-1")>
+
+In [9]: driver.find_element_by_xpath('//a[text()="next"]').click()
+
+In [10]: driver.find_element_by_xpath('//a[text()="next"]').click()

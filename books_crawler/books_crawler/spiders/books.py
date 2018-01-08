@@ -30,7 +30,29 @@ class BooksSpider(Spider):
 
 
 	def parse_book(self, response):
-		pass
+		book_title = response.xpath('//h1/text()').extract_first()
+		book_price = response.xpath('//*[@class="price_color"]/text()').extract_first()
+		book_image_url = response.xpath('//img/@src').extract_first()
+
+		# u'../../media/cache/fe/72/fe72f0532301ec28892ae79a629a293c.jpg'
+
+		# full image url here
+		# http://books.toscrape.com/media/cache/fe/72/fe72f0532301ec28892ae79a629a293c.jpg
+
+		book_image_url = book_image_url.replace('../../', 'http://books.toscrape.com/')
+
+		book_rating = response.xpath('//*[contains(@class, "star-rating")]/@class').extract_first()
+		book_rating = book_rating.replace('star-rating ', '')
+
+		book_description = response.xpath('//*[@id="product_description"]/following-sibling::p/text()').extract_first()
+
+		yield {
+			"book_title": book_title,
+			"book_price": book_price,
+			"book_image_url": book_image_url,
+			"book_rating": book_rating,
+			"book_description": book_description
+		}
 
 
 

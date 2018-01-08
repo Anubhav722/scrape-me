@@ -1,0 +1,83 @@
+(scrapy_git) sheron@sheron-HP-Pavilion-g6-Notebook-PC:~/scrapy_git$ scrapy shell 'http://books.toscrape.com'
+2018-01-09 01:35:50 [scrapy.utils.log] INFO: Scrapy 1.5.0 started (bot: scrapybot)
+2018-01-09 01:35:50 [scrapy.utils.log] INFO: Versions: lxml 4.1.1.0, libxml2 2.9.7, cssselect 1.0.3, parsel 1.3.1, w3lib 1.18.0, Twisted 17.9.0, Python 2.7.12 (default, Nov 20 2017, 18:23:56) - [GCC 5.4.0 20160609], pyOpenSSL 17.5.0 (OpenSSL 1.1.0g  2 Nov 2017), cryptography 2.1.4, Platform Linux-4.10.0-42-generic-x86_64-with-Ubuntu-16.04-xenial
+2018-01-09 01:35:50 [scrapy.crawler] INFO: Overridden settings: {'LOGSTATS_INTERVAL': 0, 'DUPEFILTER_CLASS': 'scrapy.dupefilters.BaseDupeFilter'}
+2018-01-09 01:35:50 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2018-01-09 01:35:50 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-01-09 01:35:50 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-01-09 01:35:50 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2018-01-09 01:35:50 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2018-01-09 01:35:50 [scrapy.core.engine] INFO: Spider opened
+2018-01-09 01:35:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://books.toscrape.com> (referer: None)
+2018-01-09 01:35:51 [traitlets] DEBUG: Using default logger
+2018-01-09 01:35:51 [traitlets] DEBUG: Using default logger
+2018-01-09 01:35:51 [py.warnings] WARNING: /usr/local/lib/python2.7/dist-packages/IPython/core/interactiveshell.py:726: UserWarning: Attempting to work in a virtualenv. If you encounter problems, please install IPython inside the virtualenv.
+  warn("Attempting to work in a virtualenv. If you encounter problems, please "
+
+[s] Available Scrapy objects:
+[s]   scrapy     scrapy module (contains scrapy.Request, scrapy.Selector, etc)
+[s]   crawler    <scrapy.crawler.Crawler object at 0x7f64019cdad0>
+[s]   item       {}
+[s]   request    <GET http://books.toscrape.com>
+[s]   response   <200 http://books.toscrape.com>
+[s]   settings   <scrapy.settings.Settings object at 0x7f64019cd550>
+[s]   spider     <DefaultSpider 'default' at 0x7f6400b23990>
+[s] Useful shortcuts:
+[s]   fetch(url[, redirect=True]) Fetch URL and update local objects (by default, redirects are followed)
+[s]   fetch(req)                  Fetch a scrapy.Request and update local objects 
+[s]   shelp()           Shell help (print this help)
+[s]   view(response)    View response in a browser
+In [1]: response.xpath('//h3/a/@href').extract()
+Out[1]: 
+[u'catalogue/a-light-in-the-attic_1000/index.html',
+ u'catalogue/tipping-the-velvet_999/index.html',
+ u'catalogue/soumission_998/index.html',
+ u'catalogue/sharp-objects_997/index.html',
+ u'catalogue/sapiens-a-brief-history-of-humankind_996/index.html',
+ u'catalogue/the-requiem-red_995/index.html',
+ u'catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html',
+ u'catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html',
+ u'catalogue/the-boys-in-the-boat-nine-americans-and-their-epic-quest-for-gold-at-the-1936-berlin-olympics_992/index.html',
+ u'catalogue/the-black-maria_991/index.html',
+ u'catalogue/starving-hearts-triangular-trade-trilogy-1_990/index.html',
+ u'catalogue/shakespeares-sonnets_989/index.html',
+ u'catalogue/set-me-free_988/index.html',
+ u'catalogue/scott-pilgrims-precious-little-life-scott-pilgrim-1_987/index.html',
+ u'catalogue/rip-it-up-and-start-again_986/index.html',
+ u'catalogue/our-band-could-be-your-life-scenes-from-the-american-indie-underground-1981-1991_985/index.html',
+ u'catalogue/olio_984/index.html',
+ u'catalogue/mesaerion-the-best-science-fiction-stories-1800-1849_983/index.html',
+ u'catalogue/libertarianism-for-beginners_982/index.html',
+ u'catalogue/its-only-the-himalayas_981/index.html']
+
+In [2]: len(response.xpath('//h3/a/@href').extract()) == 20
+Out[2]: True
+
+In [3]: response.xpath('//a[text()="next"]')
+Out[3]: [<Selector xpath='//a[text()="next"]' data=u'<a href="catalogue/page-2.html">next</a>'>]
+
+In [4]: response.xpath('//a[text()="next"]').extract_first()
+Out[4]: u'<a href="catalogue/page-2.html">next</a>'
+
+In [5]: response.xpath('//a[text()="next"]/@href').extract_first()
+Out[5]: u'catalogue/page-2.html'

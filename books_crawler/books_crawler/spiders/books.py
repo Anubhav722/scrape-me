@@ -17,7 +17,11 @@ def product_info(response, value):
 class BooksSpider(Spider):
 	name = 'books'
 	allowed_domains = ['books.toscrape.com']
-	start_urls = ['http://books.toscrape.com']
+	# start_urls = ['http://books.toscrape.com']
+
+	def __init__(self, category):
+		# passing arguments in scrapy to fetch a particular category ok book.
+		self.start_urls = [category]
 
 	def parse(self, response):
 		book_urls = response.xpath('//h3/a/@href').extract()

@@ -8,7 +8,10 @@
 
 class QuotesSpiderPipeline(object):
     def process_item(self, item, spider):
+    	return item
+
+
     	# Can alter the data over here.
-    	if item['h1_tag']:
-    		item['h1_tag'] = item['h1_tag'][0].upper()
-        return item
+    	# if item['h1_tag']:
+    	# 	item['h1_tag'] = item['h1_tag'][0].upper()
+     #    return item

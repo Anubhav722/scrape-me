@@ -1,0 +1,160 @@
+In [7]: # next part
+
+In [8]: response.xpath('//li[@class="result-row"]')
+Out[8]: 
+[<Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6454949'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6454870'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6454771'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6454719'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6454614'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6454601'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6454549'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6454540'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6454475'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6454467'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6454341'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6454095'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6453782'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6453520'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6453376'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6453373'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6453328'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6453296'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6452999'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6452792'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6452706'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6452631'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6452463'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6452430'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6452362'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6452312'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6452253'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6452208'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6452185'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6452163'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6452060'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6452000'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6451994'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6451992'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6451992'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6451989'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6451923'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6451631'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6450902'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6450418'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6449846'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6449348'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6449318'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6449316'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6449284'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6449278'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6449277'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6449275'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6449172'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6449092'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6448883'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6448727'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6448675'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6448673'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6448233'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6448216'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6448202'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6448177'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6448146'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6448111'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6448104'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6448090'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6448069'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6447947'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6447920'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6447895'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6447811'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6447811'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6447806'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6447792'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6447772'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6447759'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6447613'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6447553'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6447552'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6447320'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6446977'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6446904'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6446902'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6446896'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6446759'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6446483'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6446383'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6446280'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6446203'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445985'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445680'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445677'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445533'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445527'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445516'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445514'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445512'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445446'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445269'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445428'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445424'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445376'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445317'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445271'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445250'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445239'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445238'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445231'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445218'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445196'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6445152'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6444760'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6444637'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6444614'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6444473'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6442043'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6441945'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6441916'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6441814'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6441803'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6441770'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6441728'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6441608'>,
+ <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6441290'>]
+
+In [9]: len(response.xpath('//li[@class="result-row"]'))
+Out[9]: 120
+
+In [10]: l = response.xpath('//li[@class="result-row"]')
+
+In [11]: l = l[0]
+
+In [12]: 
+
+In [12]: l
+Out[12]: <Selector xpath='//li[@class="result-row"]' data=u'<li class="result-row" data-pid="6454949'>
+
+In [13]: l.extract()
+Out[13]: u'<li class="result-row" data-pid="6454949747" data-repost-of="3445438472">\n\n        <a href="https://newyork.craigslist.org/wch/egr/d/drafter-sketcher-wanted/6454949747.html" class="result-image gallery empty"></a>\n\n    <p class="result-info">\n        <span class="icon icon-star" role="button">\n            <span class="screen-reader-text">favorite this post</span>\n        </span>\n\n            <time class="result-date" datetime="2018-01-10 15:18" title="Wed 10 Jan 03:18:56 PM">Jan 10</time>\n\n\n        <a href="https://newyork.craigslist.org/wch/egr/d/drafter-sketcher-wanted/6454949747.html" data-id="6454949747" class="result-title hdrlnk">Drafter/Sketcher Wanted</a>\n\n\n        <span class="result-meta">\n\n\n\n                <span class="result-tags">\n                    <span class="maptag" data-pid="6454949747">map</span>\n                </span>\n\n                <span class="banish icon icon-trash" role="button">\n                    <span class="screen-reader-text">hide this posting</span>\n                </span>\n\n            <span class="unbanish icon icon-trash red" role="button" aria-hidden="true"></span>\n            <a href="#" class="restore-link">\n                <span class="restore-narrow-text">restore</span>\n                <span class="restore-wide-text">restore this posting</span>\n            </a>\n\n        </span>\n    </p>\n</li>'
+
+In [14]: l.xpath('.//*[@class="result-date"]')
+Out[14]: [<Selector xpath='.//*[@class="result-date"]' data=u'<time class="result-date" datetime="2018'>]
+
+In [15]: l.xpath('.//*[@class="result-date"]/@datetime').extract()
+Out[15]: [u'2018-01-10 15:18']
+
+In [16]: l.xpath('.//*[@class="result-date"]/@datetime').extract_first()
+Out[16]: u'2018-01-10 15:18'
+
+In [17]: l.xpath('.//a[@class="result-title hdrlnk"]')
+Out[17]: [<Selector xpath='.//a[@class="result-title hdrlnk"]' data=u'<a href="https://newyork.craigslist.org/'>]
+
+In [18]: l.xpath('.//a[@class="result-title hdrlnk"]/text()')
+Out[18]: [<Selector xpath='.//a[@class="result-title hdrlnk"]/text()' data=u'Drafter/Sketcher Wanted'>]
+
+In [19]: l.xpath('.//a[@class="result-title hdrlnk"]/text()').extract()
+Out[19]: [u'Drafter/Sketcher Wanted']
+
+In [20]: l.xpath('.//a[@class="result-title hdrlnk"]/text()').extract_first()
+Out[20]: u'Drafter/Sketcher Wanted'

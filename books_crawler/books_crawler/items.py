@@ -11,4 +11,11 @@ import scrapy
 class BooksCrawlerItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    book_title = scrapy.Field()
+    book_price = scrapy.Field()
+
+    # Two vars which media pipelines offer.
+    # The variable names are very important
+    # If you change it, it wont work
+    image_urls = scrapy.Field()
+    images = scrapy.Field()

@@ -9,18 +9,21 @@ class JobsSpider(scrapy.Spider):
 
 
     def parse(self, response):
-    	listings = response.xpath('//li[@class="result-row"]')
+        listings = response.xpath('//li[@class="result-row"]')
 
-    	for listing in listings:
-   			date = listing.xpath('.//*[@class="result-date"]/@datetime').extract_first()
-   			link = listing.xpath('.//a[@class="result-title hdrlnk"]/@href').extract_first()
-   			text = listing.xpath('.//a[@class="result-title hdrlnk"]/text()').extract_first()
+        for listing in listings:
+            date = listing.xpath('.//*[@class="result-date"]/@datetime').extract_first()
+            link = listing.xpath('.//a[@class="result-title hdrlnk"]/@href').extract_first()
+            text = listing.xpath('.//a[@class="result-title hdrlnk"]/text()').extract_first()
 
-   			yield {
-   				'date': date,
-   				'link': link,
-   				'text': text
-   			}
+            yield {
+                'date': date,
+                'link': link,
+                'text': text}
+
+        next_page_url = response.xpath('//*[@class="button next"]/@href').extract_first()
+        if next_page_url:
+            yield scrapy.Request(response.urljoin(next_page_url), callback=self.parse)
 
 
     # Commented out since it's good to fetch from outer class. and also we want
@@ -30,5 +33,5 @@ class JobsSpider(scrapy.Spider):
     #     listings = response.xpath('//a[@class="result-title hdrlnk"]/text()').extract()
 
     #     for listing in listings:
-    #     	# print(listing)
-    #     	yield {'Listing': listing}
+    #       # print(listing)
+    #       yield {'Listing': listing}

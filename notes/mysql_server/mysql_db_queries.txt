@@ -1,0 +1,69 @@
+
++------------------------------------+
+| INSTALLING MYSQL SERVER            |
+| sudo apt-get install mysql-server  |
++------------------------------------+
+
+
+
+
+
+ $  mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 6
+Server version: 5.7.20-0ubuntu0.16.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE sample_db;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sample_db          |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> CREATE TABLE table_example(
+    -> first_name VARCHAR(20);
+ERROR 1046 (3D000): No database selected
+mysql> CREATE TABLE table_example(first_name VARCHAR(20),
+    -> last_name VARCHAR(20),
+    -> gender CHAR(1),
+    -> birthday DATE);
+ERROR 1046 (3D000): No database selected
+mysql> use sample_db
+Database changed
+mysql> CREATE TABLE table_example(first_name VARCHAR(20), last_name VARCHAR(20), gender CHAR(1), birthday DATE);
+Query OK, 0 rows affected (0.30 sec)
+
+mysql> SELECT * FROM table_example;
+Empty set (0.00 sec)
+
+mysql> insert into table_example(first_name, last_name, gender, birthday)
+    -> VALUES(
+    -> 'Mark', 'Smith', 'M', '1990-01-01');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> SELECT * FROM table_example;
++------------+-----------+--------+------------+
+| first_name | last_name | gender | birthday   |
++------------+-----------+--------+------------+
+| Mark       | Smith     | M      | 1990-01-01 |
++------------+-----------+--------+------------+
+1 row in set (0.00 sec)
+
+mysql> 

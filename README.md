@@ -20,3 +20,18 @@ HTTPCACHE_IGNORE_HTTP_CODES = []
 HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 ```
 
+### Scrapy Advanced Settings
+
+For some sites which don't enable scraping like https://amazon.com
+Pass in `USER_AGENT` in settings.
+
+```
+scrapy shell "https://www.amazon.com/" -s USER_AGENT="<YOUR-USER-AGENT>"
+```
+
+After that view whether the site has been opened or not.
+
+```
+view(response)
+```
+

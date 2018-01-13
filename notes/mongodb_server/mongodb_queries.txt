@@ -1,0 +1,64 @@
+ $  mongo
+MongoDB shell version: 2.6.10
+connecting to: test
+> show dbs
+admin  (empty)
+local  0.078GB
+> use school_db
+switched to db school_db
+> db
+school_db
+> db.createUser({user: "principal", pwd: "123", roles: ["readWrite", "dbAdmin"]});
+Successfully added user: { "user" : "principal", "roles" : [ "readWrite", "dbAdmin" ] }
+> db.createCollection('students');
+{ "ok" : 1 }
+> show collections
+students
+system.indexes
+> db.students.insert({name: "Mike", age: 23, graed: "A"});
+WriteResult({ "nInserted" : 1 })
+> db.students.find()
+{ "_id" : ObjectId("5a5a56813c7c07d027e3383a"), "name" : "Mike", "age" : 23, "graed" : "A" }
+> db.students.insert([
+...   {name: "Michael", age: 40, graed: "B+"},
+...   {name: "Johnson", age: 36, graed: "B"}]);
+BulkWriteResult({
+	"writeErrors" : [ ],
+	"writeConcernErrors" : [ ],
+	"nInserted" : 2,
+	"nUpserted" : 0,
+	"nMatched" : 0,
+	"nModified" : 0,
+	"nRemoved" : 0,
+	"upserted" : [ ]
+})
+> db.students.find()
+{ "_id" : ObjectId("5a5a56813c7c07d027e3383a"), "name" : "Mike", "age" : 23, "graed" : "A" }
+{ "_id" : ObjectId("5a5a57303c7c07d027e3383b"), "name" : "Michael", "age" : 40, "graed" : "B+" }
+{ "_id" : ObjectId("5a5a57303c7c07d027e3383c"), "name" : "Johnson", "age" : 36, "graed" : "B" }
+> db.students.find().pretty();
+{
+	"_id" : ObjectId("5a5a56813c7c07d027e3383a"),
+	"name" : "Mike",
+	"age" : 23,
+	"graed" : "A"
+}
+{
+	"_id" : ObjectId("5a5a57303c7c07d027e3383b"),
+	"name" : "Michael",
+	"age" : 40,
+	"graed" : "B+"
+}
+{
+	"_id" : ObjectId("5a5a57303c7c07d027e3383c"),
+	"name" : "Johnson",
+	"age" : 36,
+	"graed" : "B"
+}
+> db.students.remove({})
+WriteResult({ "nRemoved" : 3 })
+> db.dropDatabase()
+{ "dropped" : "school_db", "ok" : 1 }
+> quit
+function quit() { [native code] }
+> quit()

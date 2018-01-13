@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import os
+import csv
+import glob
+
 # from scrapy.spiders import CrawlSpider, Rule
 from scrapy import Spider
 from scrapy.linkextractors import LinkExtractor
@@ -26,10 +30,11 @@ class BooksSpider(Spider):
 			absolute_url = response.urljoin(book_url)
 			yield Request(absolute_url, callback=self.parse_book)
 
+		# UNCOMMENT TO PROCESS NEXT PAGE
 		# Process next page
-		next_page_url = response.xpath('//a[text()="next"]/@href').extract_first()
-		absolute_next_page_url = response.urljoin(next_page_url)
-		yield Request(absolute_next_page_url)
+		# next_page_url = response.xpath('//a[text()="next"]/@href').extract_first()
+		# absolute_next_page_url = response.urljoin(next_page_url)
+		# yield Request(absolute_next_page_url)
 
 
 	def parse_book(self, response):

@@ -1,0 +1,252 @@
+[
+  {
+    "course_name": "Machine Learning",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/835/coursera-machine-learning"
+  },
+  {
+    "course_name": "Introduction to Computer Science and Programming Using Python",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/1341/edx-introduction-to-computer-science-and-programming-using-python"
+  },
+  {
+    "course_name": "Intro to Computer Science",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/320/udacity-intro-to-computer-science"
+  },
+  {
+    "course_name": "Functional Programming Principles in Scala",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/422/coursera-functional-programming-principles-in-scala"
+  },
+  {
+    "course_name": "Introduction to Computer Science",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/442/edx-introduction-to-computer-science"
+  },
+  {
+    "course_name": "Algorithms, Part I",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/339/coursera-algorithms-part-i"
+  },
+  {
+    "course_name": "Machine Learning for Musicians and Artists",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/3768/kadenze-machine-learning-for-musicians-and-artists"
+  },
+  {
+    "course_name": "Cryptography I",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/616/coursera-cryptography-i"
+  },
+  {
+    "course_name": "How to Use Git and GitHub",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/2661/udacity-how-to-use-git-and-github"
+  },
+  {
+    "course_name": "Deep Learning",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/5681/udacity-deep-learning"
+  },
+  {
+    "course_name": "Functional Program Design in Scala",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/1186/coursera-functional-program-design-in-scala"
+  },
+  {
+    "course_name": "Internet History, Technology, and Security",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/335/coursera-internet-history-technology-and-security"
+  },
+  {
+    "course_name": "Creative Applications of Deep Learning with TensorFlow",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/6679/kadenze-creative-applications-of-deep-learning-with-tensorflow"
+  },
+  {
+    "course_name": "Introduction to Linux",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/1857/edx-introduction-to-linux"
+  },
+  {
+    "course_name": "CS188.1x: Artificial Intelligence",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/445/edx-cs188-1x-artificial-intelligence"
+  },
+  {
+    "course_name": "Build a Modern Computer from First Principles: From Nand to Tetris (Project-Centered Course)",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/3234/coursera-build-a-modern-computer-from-first-principles-from-nand-to-tetris-project-centered-course"
+  },
+  {
+    "course_name": "Neural Networks for Machine Learning",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/398/coursera-neural-networks-for-machine-learning"
+  },
+  {
+    "course_name": "Algorithms, Part II",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/340/coursera-algorithms-part-ii"
+  },
+  {
+    "course_name": "Cloud Computing Concepts, Part 1",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/2717/coursera-cloud-computing-concepts-part-1"
+  },
+  {
+    "course_name": "Introduction to Artificial Intelligence",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/301/udacity-introduction-to-artificial-intelligence"
+  },
+  {
+    "course_name": "Machine Learning Foundations: A Case Study Approach",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/4352/coursera-machine-learning-foundations-a-case-study-approach"
+  },
+  {
+    "course_name": "Bitcoin and Cryptocurrency Technologies",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/3655/coursera-bitcoin-and-cryptocurrency-technologies"
+  },
+  {
+    "course_name": "Intro to Machine Learning",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/2996/udacity-intro-to-machine-learning"
+  },
+  {
+    "course_name": "Automata Theory",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/376/stanford-openedx-automata-theory"
+  },
+  {
+    "course_name": "Text Retrieval and Search Engines",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/2734/coursera-text-retrieval-and-search-engines"
+  },
+  {
+    "course_name": "Machine Learning With Big Data",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/4238/coursera-machine-learning-with-big-data"
+  },
+  {
+    "course_name": "Probabilistic Graphical Models 1: Representation",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/309/coursera-probabilistic-graphical-models-1-representation"
+  },
+  {
+    "course_name": "The Arduino Platform and C Programming",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/4206/coursera-the-arduino-platform-and-c-programming"
+  },
+  {
+    "course_name": "Discrete Optimization",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/487/coursera-discrete-optimization"
+  },
+  {
+    "course_name": "Introduction to Cyber Security",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/2448/futurelearn-introduction-to-cyber-security"
+  },
+  {
+    "course_name": "The Nature of Code",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/3777/kadenze-the-nature-of-code"
+  },
+  {
+    "course_name": "Hardware Security",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/1729/coursera-hardware-security"
+  },
+  {
+    "course_name": "CS101: Computer Science 101",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/2175/stanford-openedx-cs101-computer-science-101"
+  },
+  {
+    "course_name": "Machine Learning for Data Science and Analytics",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/4912/edx-machine-learning-for-data-science-and-analytics"
+  },
+  {
+    "course_name": "Introduction to the Internet of Things and Embedded Systems",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/4338/coursera-introduction-to-the-internet-of-things-and-embedded-systems"
+  },
+  {
+    "course_name": "Principles of Computing (Part 1)",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/1724/coursera-principles-of-computing-part-1"
+  },
+  {
+    "course_name": "Neural Networks and Deep Learning",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/9058/coursera-neural-networks-and-deep-learning"
+  },
+  {
+    "course_name": "Design of Computer Programs",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/323/udacity-design-of-computer-programs"
+  },
+  {
+    "course_name": "Machine Learning for Trading",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/1026/udacity-machine-learning-for-trading"
+  },
+  {
+    "course_name": "Computational Neuroscience",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/449/coursera-computational-neuroscience"
+  },
+  {
+    "course_name": "Julia Scientific Programming",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/7092/coursera-julia-scientific-programming"
+  },
+  {
+    "course_name": "Cryptography",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/1730/coursera-cryptography"
+  },
+  {
+    "course_name": "Networking: Introduction to Computer Networking",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/1578/stanford-openedx-networking-introduction-to-computer-networking"
+  },
+  {
+    "course_name": "Web Security Fundamentals",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/8726/edx-web-security-fundamentals"
+  },
+  {
+    "course_name": "Introduction to Software Product Management",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/4196/coursera-introduction-to-software-product-management"
+  },
+  {
+    "course_name": "Artificial Intelligence (AI)",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/7230/edx-artificial-intelligence-ai"
+  },
+  {
+    "course_name": "Software Processes and Agile Practices",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/4187/coursera-software-processes-and-agile-practices"
+  },
+  {
+    "course_name": "How the Internet of Things and Smart Services Will Change Society",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/3287/opensap-how-the-internet-of-things-and-smart-services-will-change-society"
+  },
+  {
+    "course_name": "Learning from Data (Introductory Machine Learning course)",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/366/learning-from-data-introductory-machine-learning-course"
+  },
+  {
+    "course_name": "Practical Machine Learning",
+    "subject_name": "Computer Science",
+    "course_url": "https://www.class-central.com/mooc/1719/coursera-practical-machine-learning"
+  }
+]

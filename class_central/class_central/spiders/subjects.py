@@ -24,6 +24,7 @@ class SubjectsSpider(Spider):
         	cs_url = response.urljoin(cs_url)
         	yield Request(cs_url, callback=self.parse_subject)
 
+
     def parse_subject(self, response):
     	subject_name = response.xpath('//title/text()').extract_first().split('|')[0].strip()
 
@@ -38,3 +39,6 @@ class SubjectsSpider(Spider):
     			'course_name': course_name,
     			'course_url': course_url
     		}
+
+    	next_page_url = response.urljoin(response.xpath('//*[@rel="next"]/@href').extract_first())
+    	yield Request(next_page_url, callback=self.parse_subject)
